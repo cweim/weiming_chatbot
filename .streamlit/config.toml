@@ -8,5 +8,3 @@ backgroundColor = "#ffffff"
 secondaryBackgroundColor = "#f9fafb"
 textColor = "#1f2937"
 
-[default]
-GROQ_API_KEY = "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"
