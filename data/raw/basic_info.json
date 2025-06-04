@@ -1,0 +1,42 @@
+{
+  "personal_summary": {
+    "prompt": "Write a 2-3 sentence professional summary about yourself",
+    "your_answer": "I am a final-year engineering student at the Singapore University of Technology and Design (SUTD), specializing in Design and Artificial Intelligence with a minor in Digital Humanities. With hands-on experience in machine learning, natural language processing, and healthcare-related design projects, I enjoy solving real-world problems using data-driven approaches and impactful technology."
+  },
+  "current_role": {
+    "prompt": "What is your current job title and company? What do you do day-to-day?",
+    "your_answer": "Currently, I am a student at SUTD, actively involved in projects that blend AI, software engineering, and human-centered design. My day-to-day includes model development in Python, frontend/backend web development, data analysis, and collaborating in multidisciplinary teams to solve complex challenges."
+  },
+  "career_goals": {
+    "prompt": "What are your short-term (1-2 years) and long-term (3-5 years) career goals?",
+    "your_answer": "Short-term (1–2 years): Secure a graduate role in technology or data science, ideally in a product-driven or healthcare-related company where I can deepen my ML/AI skills and contribute to real-world applications. Long-term (3–5 years): Become a specialist in AI for healthcare or sustainable urban solutions, taking on roles with higher ownership such as tech lead or product owner, and potentially pursue a Master's or certification in advanced AI."
+  },
+  "technical_strengths": {
+    "prompt": "List your top 5-7 technical skills and rate your proficiency",
+    "your_answer": "Python – Advanced, Machine Learning (scikit-learn, XGBoost) – Advanced, Deep Learning (PyTorch, TensorFlow) – Intermediate, NLP (Transformers, HuggingFace, SpaCy) – Advanced, Web Development (FastAPI, React) – Intermediate, Git Version Control – Advanced, Data Visualization (Matplotlib, Seaborn, Plotly) – Intermediate"
+  },
+  "preferred_work_style": {
+    "prompt": "Do you prefer remote/hybrid/office work? Team collaboration vs independent work?",
+    "your_answer": "I prefer a hybrid work environment with a balance of team collaboration and independent problem-solving. I enjoy working in fast-paced, iterative settings, especially when there's room for experimentation, learning, and cross-functional teamwork."
+  },
+  "availability": {
+    "prompt": "Are you currently looking for new opportunities?",
+    "your_answer": "Yes, I am actively looking for graduate or entry-level roles in technology, data science, AI/ML, or product design. I am open to opportunities in Singapore or remote/hybrid positions with meaningful impact and strong mentorship opportunities."
+  },
+  "notable_achievements": {
+    "prompt": "What are 3-4 professional achievements you're most proud of?",
+    "your_answer": "Developed a sentiment analysis model (RoBERTa + LoRA) that achieved 94.08% accuracy and was presented at Google HQ. Designed a Capsule Network for skin cancer classification, achieving 82% accuracy and enhanced interpretability using Grad-CAM. Forecasted enquiry demand for Singapore's CPF Board using a mathematical model during a data science project. Led and presented a hospital well-being solution at Alexandra Hospital, combining AI and patient-centered design for better healthcare experiences."
+  },
+  "learning_interests": {
+    "prompt": "What technologies or skills are you currently learning?",
+    "your_answer": "Currently exploring Generative AI, MLOps, and cloud platforms like AWS and GCP. I am also keen on improving my deployment and DevOps skills to better scale and maintain ML products."
+  },
+  "work_philosophy": {
+    "prompt": "How do you approach problem-solving?",
+    "your_answer": "I approach problem-solving by breaking down challenges into structured components, combining data-driven methods with design thinking. I value clear communication, experimentation, and always strive for solutions that are both technically sound and user-friendly."
+  },
+  "contact_preferences": {
+    "prompt": "How do you prefer to be contacted for opportunities?",
+    "your_answer": "Email or LinkedIn are my preferred channels. I value transparency in role expectations and long-term growth opportunities. Roles that offer mentorship, real-world impact, and technical growth are most appealing."
+  }
+}

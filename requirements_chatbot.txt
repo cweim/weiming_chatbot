@@ -1,0 +1,25 @@
+# requirements_chatbot.txt
+# Requirements for Wei Ming's RAG Chatbot
+
+# Core RAG Components
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4
+
+# Web Interface
+streamlit>=1.28.0
+
+# HTTP Requests (for Ollama API)
+requests>=2.28.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# JSON and File Handling
+pathlib2>=2.3.0
+
+# Optional: For better performance
+torch>=2.0.0
+
+# Development
+jupyter>=1.0.0
