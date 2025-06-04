@@ -5,12 +5,13 @@ import sys
 from pathlib import Path
 import time
 import json
+import os
 
 # Add src to path
 current_dir = Path(__file__).parent
 sys.path.append(str(current_dir / "src"))
 
-from chatbot.rag_chatbot import RAGChatbot
+from chatbot.groq_rag_chatbot import GroqRAGChatbot
 
 # Page configuration
 st.set_page_config(
@@ -207,7 +208,16 @@ def initialize_chatbot():
     """Initialize chatbot - cached to avoid reloading"""
     try:
         vector_store_dir = Path(__file__).parent / "data" / "vector_store"
-        chatbot = RAGChatbot(str(vector_store_dir), llama_model="llama3.2:3b")
+
+        # Get Groq API key from environment or Streamlit secrets
+        groq_api_key = os.getenv('GROQ_API_KEY')
+        if not groq_api_key and hasattr(st, 'secrets'):
+            try:
+                groq_api_key = st.secrets["GROQ_API_KEY"]
+            except:
+                pass
+
+        chatbot = GroqRAGChatbot(str(vector_store_dir), groq_api_key=groq_api_key)
         return chatbot, None
     except Exception as e:
         return None, str(e)
@@ -248,8 +258,19 @@ def main():
 
     if error:
         st.error(f"❌ Failed to initialize chatbot: {error}")
-        st.info("Please ensure Ollama is running and you have downloaded a model.")
-        st.code("ollama serve\nollama pull llama3.2:3b")
+        st.info("Please ensure you have set up your Groq API key.")
+
+        # Show API key setup instructions
+        st.markdown("""
+        ### 🔑 Getting Your Free Groq API Key:
+        1. Visit: https://console.groq.com
+        2. Sign up for free account
+        3. Go to API Keys section
+        4. Create new API key
+        5. Set it as environment variable: `GROQ_API_KEY=your_key_here`
+
+        **Free tier includes 14,400 requests per day!**
+        """)
         return
 
     # Hero Section
@@ -313,7 +334,7 @@ def main():
     # Footer
     st.markdown("""
     <div class="footer">
-        Powered by Llama 3.2 • RAG Technology • 328 Knowledge Chunks
+        Powered by Groq & Llama 3.2 • RAG Technology • 328 Knowledge Chunks
     </div>
     """, unsafe_allow_html=True)
 
