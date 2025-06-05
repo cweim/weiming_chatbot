@@ -8,6 +8,10 @@ from typing import List, Dict, Any, Optional
 from sentence_transformers import SentenceTransformer
 import requests
 import sys
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Add src to path for imports
 sys.path.append(str(Path(__file__).parent.parent))
@@ -25,9 +29,10 @@ class GroqRAGChatbot:
             groq_api_key: Groq API key (get free at https://console.groq.com)
         """
         self.vector_store_dir = Path(vector_store_dir)
+        # Use provided key or environment variable
         self.groq_api_key = groq_api_key or os.getenv('GROQ_API_KEY')
         self.groq_url = "https://api.groq.com/openai/v1/chat/completions"
-        self.model_name = "llama-3.2-3b-preview"  # Groq's Llama 3.2 3B model
+        self.model_name = "llama-3.1-8b-instant"  # Fast, reliable production model
 
         if not self.groq_api_key:
             print("⚠️  No Groq API key found!")
@@ -112,42 +117,63 @@ class GroqRAGChatbot:
 
         return results
 
+    def _estimate_tokens(self, text: str) -> int:
+        """Rough token estimation (1 token ≈ 4 characters)"""
+        return len(text) // 4
+
+    def _truncate_context(self, context_chunks: List[Dict[str, Any]], max_tokens: int = 8000) -> str:
+        """Build context string while staying under token limit"""
+        context_text = ""
+        current_tokens = 0
+
+        for i, chunk in enumerate(context_chunks, 1):
+            chunk_type = chunk['metadata'].get('type', 'content')
+            chunk_content = chunk['content']
+
+            # Truncate individual chunks to max 800 characters
+            if len(chunk_content) > 800:
+                chunk_content = chunk_content[:800] + "..."
+
+            chunk_header = f"\n--- Context {i} ({chunk_type}) ---\n"
+            chunk_text = chunk_header + chunk_content + "\n"
+
+            chunk_tokens = self._estimate_tokens(chunk_text)
+
+            # Stop if adding this chunk would exceed limit
+            if current_tokens + chunk_tokens > max_tokens:
+                print(f"📏 Context truncated at {current_tokens} tokens (chunk {i-1}/{len(context_chunks)})")
+                break
+
+            context_text += chunk_text
+            current_tokens += chunk_tokens
+
+        return context_text
+
     def generate_prompt_messages(self, query: str, context_chunks: List[Dict[str, Any]]) -> List[Dict[str, str]]:
         """Generate messages for Groq API with retrieved context"""
 
-        # System message about Wei Ming
-        system_message = """You are an AI assistant that helps people learn about Wei Ming Chin, a final-year engineering student at SUTD specializing in Design and Artificial Intelligence.
+        # Shorter system message
+        system_message = """You are Wei Ming Chin's AI assistant. Answer questions about Wei Ming's background, projects, skills, and experience using the provided context. Be concise and helpful. Always refer to him as "Wei Ming"."""
 
-Use the provided context to answer questions accurately about Wei Ming's background, projects, skills, and experience. Be conversational, helpful, and specific.
+        # Build truncated context
+        context_text = self._truncate_context(context_chunks, max_tokens=6000)
 
-If asked about contact information, be professional. If the context doesn't contain enough information to answer a question fully, say so honestly.
+        # Create shorter user message
+        user_message = f"Context:\n{context_text}\n\nQuestion: {query}\n\nAnswer based on the context:"
 
-Always refer to him as "Wei Ming" in your responses. Keep responses concise but informative."""
-
-        # Build context from retrieved chunks
-        context_text = ""
-        for i, chunk in enumerate(context_chunks, 1):
-            chunk_type = chunk['metadata'].get('type', 'content')
-            context_text += f"\n--- Context {i} ({chunk_type}) ---\n"
-            context_text += chunk['content'][:800]  # Limit chunk size
-            context_text += "\n"
-
-        # Create messages array for Groq
         messages = [
-            {
-                "role": "system",
-                "content": system_message
-            },
-            {
-                "role": "user",
-                "content": f"Context information:\n{context_text}\n\nQuestion: {query}\n\nPlease answer based on the context provided."
-            }
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": user_message}
         ]
+
+        # Debug: Print message sizes
+        total_tokens = sum(self._estimate_tokens(msg["content"]) for msg in messages)
+        print(f"📏 Estimated total input tokens: {total_tokens}")
 
         return messages
 
-    def query_groq(self, messages: List[Dict[str, str]], max_tokens: int = 500) -> str:
-        """Query Groq API"""
+    def query_groq(self, messages: List[Dict[str, str]], max_tokens: int = 300) -> str:
+        """Query Groq API with reduced token limits"""
         if not self.groq_api_key:
             return "⚠️ Groq API key not configured. Please set your GROQ_API_KEY environment variable. Get a free key at https://console.groq.com"
 
@@ -161,7 +187,7 @@ Always refer to him as "Wei Ming" in your responses. Keep responses concise but 
                 "model": self.model_name,
                 "messages": messages,
                 "temperature": 0.1,
-                "max_tokens": max_tokens,
+                "max_tokens": max_tokens,  # Reduced from 500 to 300
                 "top_p": 0.9,
                 "stream": False
             }
@@ -181,7 +207,8 @@ Always refer to him as "Wei Ming" in your responses. Keep responses concise but 
             elif response.status_code == 429:
                 return "⚠️ Rate limit reached. The free tier allows 14,400 requests per day. Please try again later."
             elif response.status_code == 400:
-                return "❌ Request error. The message might be too long or contain invalid content."
+                error_details = response.json() if response.content else {}
+                return f"❌ Request error: {error_details.get('error', {}).get('message', 'Message too long or invalid content')}"
             else:
                 return f"❌ Groq API error: {response.status_code}. Please try again."
 
@@ -193,7 +220,7 @@ Always refer to him as "Wei Ming" in your responses. Keep responses concise but 
     def chat(self, query: str, top_k: int = 5, max_tokens: int = 500) -> Dict[str, Any]:
         """Main chat function - retrieve context and generate response"""
 
-        # Step 1: Retrieve relevant context
+        # Step 1: Retrieve relevant context (back to 5 chunks)
         print(f"🔍 Retrieving context for: '{query}'")
         context_chunks = self.retrieve_context(query, top_k=top_k)
 
@@ -250,7 +277,7 @@ if __name__ == "__main__":
         print(f"\n🔹 Query: {query}")
         print("-" * 50)
 
-        result = chatbot.chat(query, top_k=3)
+        result = chatbot.chat(query, top_k=5)
 
         print(f"🤖 Response: {result['response']}")
         print(f"\n📊 Sources used:")
