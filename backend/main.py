@@ -6,9 +6,9 @@ import sys
 import os
 
 # Add your chatbot to the path
-current_dir = Path(__file__).parent  # Points to backend/
-project_root = current_dir.parent    # Points to project-root/
-sys.path.append(str(project_root / "src"))  # Adds project-root/src to path
+current_dir = Path(__file__).parent
+project_root = current_dir.parent
+sys.path.append(str(project_root / "src"))
 
 from chatbot.groq_rag_chatbot import GroqRAGChatbot
 
@@ -17,7 +17,11 @@ app = FastAPI(title="Wei Ming Chatbot API", version="1.0.0")
 # Enable CORS for your frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://your-deployed-frontend.vercel.app"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://*.vercel.app",
+        "https://vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
