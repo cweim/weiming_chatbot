@@ -153,13 +153,22 @@ class GroqRAGChatbot:
         """Generate messages for Groq API with retrieved context"""
 
         # Shorter system message
-        system_message = """You are Wei Ming Chin's AI assistant. Answer questions about Wei Ming's background, projects, skills, and experience using the provided context. Be concise and helpful. Always refer to him as "Wei Ming"."""
+        system_message = """You're a friendly AI assistant who knows Wei Ming Chin well.
 
+                            For questions about Wei Ming: Answer naturally and conversationally using the provided information. Keep responses specific, helpful, and around 2-3 sentences. Always refer to him as "Wei Ming." Never say "based on the context."
+
+                            For unrelated questions: Just answer normally like any helpful AI assistant would. Don't mention Wei Ming or try to relate everything back to him.
+
+                            Be natural and conversational in all responses."""
         # Build truncated context
         context_text = self._truncate_context(context_chunks, max_tokens=6000)
 
         # Create shorter user message
-        user_message = f"Context:\n{context_text}\n\nQuestion: {query}\n\nAnswer based on the context:"
+        user_message = f"""Here's what I know about Wei Ming:
+
+                            {context_text}
+
+                            Question: {query}"""
 
         messages = [
             {"role": "system", "content": system_message},

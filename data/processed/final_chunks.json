@@ -5301,14 +5301,19 @@
   },
   {
     "id": "basic_info_personal_summary",
-    "content": "Write a 2-3 sentence professional summary about yourself\n\nAnswer: I am a final-year engineering student at the Singapore University of Technology and Design (SUTD), specializing in Design and Artificial Intelligence with a minor in Digital Humanities. With hands-on experience in machine learning, natural language processing, and healthcare-related design projects, I enjoy solving real-world problems using data-driven approaches and impactful technology.",
+    "content": "Write a 2-3 sentence professional summary about yourself.\n\nAnswer: I am a final-year engineering student at the Singapore University of Technology and Design (SUTD), specializing in Design and Artificial Intelligence with a minor in Digital Humanities. With hands-on experience in machine learning, natural language processing, and healthcare-related design projects, I enjoy solving real-world problems using data-driven approaches and impactful technology.",
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Personal Summary",
+      "title": "personal_summary",
       "info_type": "personal_summary",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "summary",
+        "profile",
+        "career"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5320,10 +5325,15 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Current Role",
+      "title": "current_role",
       "info_type": "current_role",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "role",
+        "daily tasks",
+        "current"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5335,10 +5345,14 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Career Goals",
+      "title": "career_goals",
       "info_type": "career_goals",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "goals",
+        "career"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5346,14 +5360,18 @@
   },
   {
     "id": "basic_info_technical_strengths",
-    "content": "List your top 5-7 technical skills and rate your proficiency\n\nAnswer: Python – Advanced, Machine Learning (scikit-learn, XGBoost) – Advanced, Deep Learning (PyTorch, TensorFlow) – Intermediate, NLP (Transformers, HuggingFace, SpaCy) – Advanced, Web Development (FastAPI, React) – Intermediate, Git Version Control – Advanced, Data Visualization (Matplotlib, Seaborn, Plotly) – Intermediate",
+    "content": "List your top 5-7 technical skills and rate your proficiency.\n\nAnswer: Python – Advanced, Machine Learning (scikit-learn, XGBoost) – Advanced, Deep Learning (PyTorch, TensorFlow) – Intermediate, NLP (Transformers, HuggingFace, SpaCy) – Advanced, Web Development (FastAPI, React) – Intermediate, Git Version Control – Advanced, Data Visualization (Matplotlib, Seaborn, Plotly) – Intermediate",
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Technical Strengths",
+      "title": "technical_strengths",
       "info_type": "technical_strengths",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "skills",
+        "tech stack"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5365,10 +5383,14 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Preferred Work Style",
+      "title": "preferred_work_style",
       "info_type": "preferred_work_style",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "preferences",
+        "work style"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5380,10 +5402,14 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Availability",
+      "title": "availability",
       "info_type": "availability",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "job search",
+        "availability"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5395,10 +5421,14 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Notable Achievements",
+      "title": "notable_achievements",
       "info_type": "notable_achievements",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "achievements",
+        "milestones"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5410,10 +5440,14 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Learning Interests",
+      "title": "learning_interests",
       "info_type": "learning_interests",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "learning",
+        "interests"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5425,10 +5459,14 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Work Philosophy",
+      "title": "work_philosophy",
       "info_type": "work_philosophy",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "problem solving",
+        "mindset"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",
@@ -5440,10 +5478,154 @@
     "metadata": {
       "type": "basic_info",
       "category": "personal_info",
-      "title": "Contact Preferences",
+      "title": "contact_preferences",
       "info_type": "contact_preferences",
       "source_title": "Basic Information",
-      "priority": "high"
+      "priority": "high",
+      "tags": [
+        "contact",
+        "preferences"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 39
+  },
+  {
+    "id": "basic_info_fun_facts",
+    "content": "What are some fun or unique facts about yourself?\n\nAnswer: I’ve served as both President and Vice-President of my university’s Football Club and currently captain the team in a national league. I also enjoy organizing events for Malaysian students in Singapore and was proud to host a freshman-senior get-together.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "fun_facts",
+      "info_type": "fun_facts",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "fun",
+        "facts",
+        "leadership",
+        "sports"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 49
+  },
+  {
+    "id": "basic_info_hobbies",
+    "content": "What are your top hobbies or activities you enjoy?\n\nAnswer: I love playing football competitively, watching tactical breakdowns of matches, and staying fit through regular training. Outside sports, I enjoy tinkering with AI models, building side projects, and discovering new music and productivity tools.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "hobbies",
+      "info_type": "hobbies",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "hobbies",
+        "sports",
+        "tech",
+        "music"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 44
+  },
+  {
+    "id": "basic_info_personality_type",
+    "content": "How would you describe your personality?\n\nAnswer: I’m a driven and curious person who enjoys learning, leading, and collaborating. I’m often the one organizing plans, but I’m also reflective and enjoy meaningful 1-on-1 conversations. Friends describe me as dependable, analytical, and slightly competitive.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "personality_type",
+      "info_type": "personality_type",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "personality",
+        "traits"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 43
+  },
+  {
+    "id": "basic_info_ideal_partner",
+    "content": "What do you look for in a potential partner?\n\nAnswer: Someone kind, grounded, and intellectually curious. I admire people who are thoughtful in conversation, driven in their goals, and have a playful side. Bonus if they’re into sports or design.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "ideal_partner",
+      "info_type": "ideal_partner",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "dating",
+        "preferences"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 40
+  },
+  {
+    "id": "basic_info_ideal_date",
+    "content": "What’s your idea of a perfect date?\n\nAnswer: Something low-pressure and casual — maybe a cozy café chat, watching a match together, or visiting a tech/design exhibition. I value chemistry through shared experiences more than grand gestures.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "ideal_date",
+      "info_type": "ideal_date",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "dating",
+        "personality",
+        "preferences"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 37
+  },
+  {
+    "id": "basic_info_weekend_plans",
+    "content": "How do you typically spend your weekends?\n\nAnswer: Weekends usually involve football matches or training, catching up on personal projects, and spending time with close friends or family. I also enjoy trying new food spots or watching Premier League games.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "weekend_plans",
+      "info_type": "weekend_plans",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "weekend",
+        "routine",
+        "lifestyle"
+      ]
+    },
+    "source_type": "manual",
+    "source_file": "basic_info.json",
+    "word_count": 40
+  },
+  {
+    "id": "basic_info_non_work_passions",
+    "content": "What’s something you're passionate about outside of work or studies?\n\nAnswer: I’m passionate about community building — whether it's mentoring juniors, helping organize student-led events, or contributing to causes that matter to me like mental health and youth development.",
+    "metadata": {
+      "type": "basic_info",
+      "category": "personal_info",
+      "title": "non_work_passions",
+      "info_type": "non_work_passions",
+      "source_title": "Basic Information",
+      "priority": "high",
+      "tags": [
+        "passion",
+        "community",
+        "personal growth"
+      ]
     },
     "source_type": "manual",
     "source_file": "basic_info.json",

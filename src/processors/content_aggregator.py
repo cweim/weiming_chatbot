@@ -431,28 +431,30 @@ class ContentAggregator:
         except Exception as e:
             print(f"Error processing CSV {csv_file.name}: {e}")
 
-    def _chunk_basic_info(self, basic_info: Dict[str, Any]):
-        """Chunk basic info content"""
-        for key, info in basic_info.items():
-            if isinstance(info, dict) and 'your_answer' in info and info['your_answer']:
-                content = f"{info['prompt']}\n\nAnswer: {info['your_answer']}"
+    def _chunk_basic_info(self, basic_info: List[Dict[str, Any]]):
+        """Chunk basic info content from a list of entries"""
+        for entry in basic_info:
+            if isinstance(entry, dict) and 'question' in entry and 'answer' in entry:
+                content = f"{entry['question']}\n\nAnswer: {entry['answer']}"
 
                 chunk = ContentChunk(
-                    id=f"basic_info_{key}",
+                    id=f"basic_info_{entry.get('id', entry['question'][:30].replace(' ', '_'))}",
                     content=content,
                     metadata={
                         'type': 'basic_info',
                         'category': 'personal_info',
-                        'title': key.replace('_', ' ').title(),
-                        'info_type': key,
+                        'title': entry.get('id', entry['question'][:30]),
+                        'info_type': entry.get('id', 'unknown'),
                         'source_title': 'Basic Information',
-                        'priority': 'high'
+                        'priority': 'high',
+                        'tags': entry.get('tags', [])
                     },
                     source_type='manual',
                     source_file='basic_info.json',
                     word_count=len(content.split())
                 )
                 self.all_chunks.append(chunk)
+
 
     def _extract_bio_section(self, content: str) -> str:
         """Extract bio section from portfolio content"""

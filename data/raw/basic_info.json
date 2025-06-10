@@ -1,42 +1,105 @@
-{
-  "personal_summary": {
-    "prompt": "Write a 2-3 sentence professional summary about yourself",
-    "your_answer": "I am a final-year engineering student at the Singapore University of Technology and Design (SUTD), specializing in Design and Artificial Intelligence with a minor in Digital Humanities. With hands-on experience in machine learning, natural language processing, and healthcare-related design projects, I enjoy solving real-world problems using data-driven approaches and impactful technology."
+[
+  {
+    "id": "personal_summary",
+    "question": "Write a 2-3 sentence professional summary about yourself.",
+    "answer": "I am a final-year engineering student at the Singapore University of Technology and Design (SUTD), specializing in Design and Artificial Intelligence with a minor in Digital Humanities. With hands-on experience in machine learning, natural language processing, and healthcare-related design projects, I enjoy solving real-world problems using data-driven approaches and impactful technology.",
+    "tags": ["summary", "profile", "career"]
   },
-  "current_role": {
-    "prompt": "What is your current job title and company? What do you do day-to-day?",
-    "your_answer": "Currently, I am a student at SUTD, actively involved in projects that blend AI, software engineering, and human-centered design. My day-to-day includes model development in Python, frontend/backend web development, data analysis, and collaborating in multidisciplinary teams to solve complex challenges."
+  {
+    "id": "current_role",
+    "question": "What is your current job title and company? What do you do day-to-day?",
+    "answer": "Currently, I am a student at SUTD, actively involved in projects that blend AI, software engineering, and human-centered design. My day-to-day includes model development in Python, frontend/backend web development, data analysis, and collaborating in multidisciplinary teams to solve complex challenges.",
+    "tags": ["role", "daily tasks", "current"]
   },
-  "career_goals": {
-    "prompt": "What are your short-term (1-2 years) and long-term (3-5 years) career goals?",
-    "your_answer": "Short-term (1–2 years): Secure a graduate role in technology or data science, ideally in a product-driven or healthcare-related company where I can deepen my ML/AI skills and contribute to real-world applications. Long-term (3–5 years): Become a specialist in AI for healthcare or sustainable urban solutions, taking on roles with higher ownership such as tech lead or product owner, and potentially pursue a Master's or certification in advanced AI."
+  {
+    "id": "career_goals",
+    "question": "What are your short-term (1-2 years) and long-term (3-5 years) career goals?",
+    "answer": "Short-term (1–2 years): Secure a graduate role in technology or data science, ideally in a product-driven or healthcare-related company where I can deepen my ML/AI skills and contribute to real-world applications. Long-term (3–5 years): Become a specialist in AI for healthcare or sustainable urban solutions, taking on roles with higher ownership such as tech lead or product owner, and potentially pursue a Master's or certification in advanced AI.",
+    "tags": ["goals", "career"]
   },
-  "technical_strengths": {
-    "prompt": "List your top 5-7 technical skills and rate your proficiency",
-    "your_answer": "Python – Advanced, Machine Learning (scikit-learn, XGBoost) – Advanced, Deep Learning (PyTorch, TensorFlow) – Intermediate, NLP (Transformers, HuggingFace, SpaCy) – Advanced, Web Development (FastAPI, React) – Intermediate, Git Version Control – Advanced, Data Visualization (Matplotlib, Seaborn, Plotly) – Intermediate"
+  {
+    "id": "technical_strengths",
+    "question": "List your top 5-7 technical skills and rate your proficiency.",
+    "answer": "Python – Advanced, Machine Learning (scikit-learn, XGBoost) – Advanced, Deep Learning (PyTorch, TensorFlow) – Intermediate, NLP (Transformers, HuggingFace, SpaCy) – Advanced, Web Development (FastAPI, React) – Intermediate, Git Version Control – Advanced, Data Visualization (Matplotlib, Seaborn, Plotly) – Intermediate",
+    "tags": ["skills", "tech stack"]
   },
-  "preferred_work_style": {
-    "prompt": "Do you prefer remote/hybrid/office work? Team collaboration vs independent work?",
-    "your_answer": "I prefer a hybrid work environment with a balance of team collaboration and independent problem-solving. I enjoy working in fast-paced, iterative settings, especially when there's room for experimentation, learning, and cross-functional teamwork."
+  {
+    "id": "preferred_work_style",
+    "question": "Do you prefer remote/hybrid/office work? Team collaboration vs independent work?",
+    "answer": "I prefer a hybrid work environment with a balance of team collaboration and independent problem-solving. I enjoy working in fast-paced, iterative settings, especially when there's room for experimentation, learning, and cross-functional teamwork.",
+    "tags": ["preferences", "work style"]
   },
-  "availability": {
-    "prompt": "Are you currently looking for new opportunities?",
-    "your_answer": "Yes, I am actively looking for graduate or entry-level roles in technology, data science, AI/ML, or product design. I am open to opportunities in Singapore or remote/hybrid positions with meaningful impact and strong mentorship opportunities."
+  {
+    "id": "availability",
+    "question": "Are you currently looking for new opportunities?",
+    "answer": "Yes, I am actively looking for graduate or entry-level roles in technology, data science, AI/ML, or product design. I am open to opportunities in Singapore or remote/hybrid positions with meaningful impact and strong mentorship opportunities.",
+    "tags": ["job search", "availability"]
   },
-  "notable_achievements": {
-    "prompt": "What are 3-4 professional achievements you're most proud of?",
-    "your_answer": "Developed a sentiment analysis model (RoBERTa + LoRA) that achieved 94.08% accuracy and was presented at Google HQ. Designed a Capsule Network for skin cancer classification, achieving 82% accuracy and enhanced interpretability using Grad-CAM. Forecasted enquiry demand for Singapore's CPF Board using a mathematical model during a data science project. Led and presented a hospital well-being solution at Alexandra Hospital, combining AI and patient-centered design for better healthcare experiences."
+  {
+    "id": "notable_achievements",
+    "question": "What are 3-4 professional achievements you're most proud of?",
+    "answer": "Developed a sentiment analysis model (RoBERTa + LoRA) that achieved 94.08% accuracy and was presented at Google HQ. Designed a Capsule Network for skin cancer classification, achieving 82% accuracy and enhanced interpretability using Grad-CAM. Forecasted enquiry demand for Singapore's CPF Board using a mathematical model during a data science project. Led and presented a hospital well-being solution at Alexandra Hospital, combining AI and patient-centered design for better healthcare experiences.",
+    "tags": ["achievements", "milestones"]
   },
-  "learning_interests": {
-    "prompt": "What technologies or skills are you currently learning?",
-    "your_answer": "Currently exploring Generative AI, MLOps, and cloud platforms like AWS and GCP. I am also keen on improving my deployment and DevOps skills to better scale and maintain ML products."
+  {
+    "id": "learning_interests",
+    "question": "What technologies or skills are you currently learning?",
+    "answer": "Currently exploring Generative AI, MLOps, and cloud platforms like AWS and GCP. I am also keen on improving my deployment and DevOps skills to better scale and maintain ML products.",
+    "tags": ["learning", "interests"]
   },
-  "work_philosophy": {
-    "prompt": "How do you approach problem-solving?",
-    "your_answer": "I approach problem-solving by breaking down challenges into structured components, combining data-driven methods with design thinking. I value clear communication, experimentation, and always strive for solutions that are both technically sound and user-friendly."
+  {
+    "id": "work_philosophy",
+    "question": "How do you approach problem-solving?",
+    "answer": "I approach problem-solving by breaking down challenges into structured components, combining data-driven methods with design thinking. I value clear communication, experimentation, and always strive for solutions that are both technically sound and user-friendly.",
+    "tags": ["problem solving", "mindset"]
   },
-  "contact_preferences": {
-    "prompt": "How do you prefer to be contacted for opportunities?",
-    "your_answer": "Email or LinkedIn are my preferred channels. I value transparency in role expectations and long-term growth opportunities. Roles that offer mentorship, real-world impact, and technical growth are most appealing."
+  {
+    "id": "contact_preferences",
+    "question": "How do you prefer to be contacted for opportunities?",
+    "answer": "Email or LinkedIn are my preferred channels. I value transparency in role expectations and long-term growth opportunities. Roles that offer mentorship, real-world impact, and technical growth are most appealing.",
+    "tags": ["contact", "preferences"]
+  },
+  {
+    "id": "fun_facts",
+    "question": "What are some fun or unique facts about yourself?",
+    "answer": "I’ve served as both President and Vice-President of my university’s Football Club and currently captain the team in a national league. I also enjoy organizing events for Malaysian students in Singapore and was proud to host a freshman-senior get-together.",
+    "tags": ["fun", "facts", "leadership", "sports"]
+  },
+  {
+    "id": "hobbies",
+    "question": "What are your top hobbies or activities you enjoy?",
+    "answer": "I love playing football competitively, watching tactical breakdowns of matches, and staying fit through regular training. Outside sports, I enjoy tinkering with AI models, building side projects, and discovering new music and productivity tools.",
+    "tags": ["hobbies", "sports", "tech", "music"]
+  },
+  {
+    "id": "personality_type",
+    "question": "How would you describe your personality?",
+    "answer": "I’m a driven and curious person who enjoys learning, leading, and collaborating. I’m often the one organizing plans, but I’m also reflective and enjoy meaningful 1-on-1 conversations. Friends describe me as dependable, analytical, and slightly competitive.",
+    "tags": ["personality", "traits"]
+  },
+  {
+    "id": "ideal_partner",
+    "question": "What do you look for in a potential partner?",
+    "answer": "Someone kind, grounded, and intellectually curious. I admire people who are thoughtful in conversation, driven in their goals, and have a playful side. Bonus if they’re into sports or design.",
+    "tags": ["dating", "preferences"]
+  },
+  {
+    "id": "ideal_date",
+    "question": "What’s your idea of a perfect date?",
+    "answer": "Something low-pressure and casual — maybe a cozy café chat, watching a match together, or visiting a tech/design exhibition. I value chemistry through shared experiences more than grand gestures.",
+    "tags": ["dating", "personality", "preferences"]
+  },
+  {
+    "id": "weekend_plans",
+    "question": "How do you typically spend your weekends?",
+    "answer": "Weekends usually involve football matches or training, catching up on personal projects, and spending time with close friends or family. I also enjoy trying new food spots or watching Premier League games.",
+    "tags": ["weekend", "routine", "lifestyle"]
+  },
+  {
+    "id": "non_work_passions",
+    "question": "What’s something you're passionate about outside of work or studies?",
+    "answer": "I’m passionate about community building — whether it's mentoring juniors, helping organize student-led events, or contributing to causes that matter to me like mental health and youth development.",
+    "tags": ["passion", "community", "personal growth"]
   }
-}
+]
+

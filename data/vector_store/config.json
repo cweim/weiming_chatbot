@@ -1,7 +1,7 @@
 {
   "model_name": "sentence-transformers/all-MiniLM-L6-v2",
   "embedding_dimension": 384,
-  "num_chunks": 328,
+  "num_chunks": 335,
   "chunks_file": "/Users/weimingchin/Desktop/weiming_chatbot/data/processed/final_chunks.json",
   "created_timestamp": "/Users/weimingchin/Desktop/weiming_chatbot",
   "faiss_index_file": "/Users/weimingchin/Desktop/weiming_chatbot/data/vector_store/faiss_index.index",
